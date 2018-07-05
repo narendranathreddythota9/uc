@@ -1,0 +1,103 @@
+<style>
+	.margin-top-1 {
+		margin-top: 1em;
+	}
+
+	#particles-js {
+		background-color: #f4f4f4;
+		position: fixed;
+		background-size: cover;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+	}
+
+	#overlay {
+		position: relative;
+	}
+</style>
+<div id="particles-js"></div>
+<div class="container">
+	{{#if success_msg}}
+		<script>
+			sweetAlert({
+				title: "{{success_msg}}",
+				text: "",
+				icon: "success",
+			});
+		</script>
+	{{/if}}
+
+	{{#if error_msg}}
+		<script>
+			sweetAlert({
+				title: "{{error_msg}}",
+				text: "",
+				icon: "error",
+			});
+		</script>
+	{{/if}}
+
+	{{#if error}}
+		<script>
+			sweetAlert({
+				title: "{{error}}",
+				text: "",
+				icon: "error",
+			});
+		</script>
+
+	{{/if}}
+	<div class="panel-body"></div>
+	<div class="panel-body"></div>
+	<div class="container">
+		<br><br><br>
+		<div class="row">
+			<div class="col-md-6">
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-5">
+				<div class="card card-stats">
+					<div class="card-header" data-background-color="orange">
+						<i class="material-icons">fingerprint</i>
+					</div>
+					<div class="card-content">
+						<form method="POST" action="/login">
+							<div class="panel-body"></div>
+							<div class="form-group form-group-lg">
+								<div class="input-group">
+								<div class="input-group-addon">
+								 <i class="material-icons">contact_mail</i>
+								</div>
+								<input rel="tooltip" title="user@gmail.com" type="text" class="form-control" name="username" placeholder="Email or username" #id>
+							</div>
+							</div>
+							<br>
+							<div class="form-group form-group-lg">
+								<div class="input-group">
+								<div class="input-group-addon">
+								<i class="material-icons">lock_outline</i>
+							</div>
+								<input rel="tooltip" title="*********" type="password" class="form-control" name="password" placeholder="Password">
+							</div>
+							</div>
+							<br>
+							<button type="submit" rel="tooltip" title="Blockchain Based Authentication" class="btn btn-danger btn-lg btn-block">
+																		<i class="material-icons">lock_open</i></button>
+						</form>
+						<hr>
+						<br>
+						<a href="/register"><button  class="btn btn-primary btn-lg btn-block"><i class="material-icons">person_add</i></button></a>
+					</div>
+					<div class="card-footer">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="./particles.js"></script>
+<script src="./particlesjsn.js"></script>

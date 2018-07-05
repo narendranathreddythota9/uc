@@ -1,0 +1,33 @@
+.status-offline {
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-top: 4px;
+  width: 12px;
+  height: 12px;
+  background: red;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.status-wait {
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-top: 4px;
+  width: 12px;
+  height: 12px;
+  background: orange;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.status-online {
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-top: 4px;
+  width: 12px;
+  height: 12px;
+  background: mediumseagreen;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}

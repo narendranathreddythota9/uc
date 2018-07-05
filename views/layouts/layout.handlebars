@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>urbanchain | Micro Lending Platform | Powered by Blockchain</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+
+  <!-- Bootstrap core CSS     -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <!--     Fonts and icons     -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../assets/css/jquery.loading-indicator.css">
+  <link rel="stylesheet" href="../assets/css/preloader.css">
+  <script src="../assets/js/sweetalert.min.js" type="text/javascript"></script>
+  <link href="../assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+</head>
+
+<body>
+
+  {{{ body }}}
+
+  <script>
+    setTimeout(function() {
+      $('#success').fadeOut('fast');
+      $('#errors').fadeOut('fast');
+      $('#err').fadeOut('fast');
+      $('#prverror').fadeOut('fast');
+      $('#prvsuccess').fadeOut('fast');
+      $('#codeerr').fadeOut('fast');
+    }, 3000);
+  </script>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../assets/js/material.min.js" type="text/javascript"></script>
+  <script src="../assets/js/jquery.loading-indicator.js" type="text/javascript"></script>
+  <script src="../assets/js/jquery.preloader.js" type="text/javascript"></script>
+  <script src="../assets/js/bootstrap-checkbox.min.js"></script>
+  <!--  Sweet Alert Plugin -->
+  <script src="../assets/js/sweetalert.min.js" type="text/javascript"></script>
+  <!--  Charts Plugin -->
+  <script src="../assets/js/chartist.min.js"></script>
+  <!--  Dynamic Elements plugin -->
+  <script src="../assets/js/arrive.min.js"></script>
+  <!--  PerfectScrollbar Library -->
+  <script src="../assets/js/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/bootstrap-notify.js"></script>
+  <!-- Material Dashboard javascript methods -->
+  <script src="../assets/js/material-dashboard.js?v=1.2.0"></script>
+
+  <script>
+    $(function() {
+      var homeLoader = $('body').loadingIndicator({
+        useImage: false,
+      }).data("loadingIndicator");
+
+      setTimeout(function() {
+        homeLoader.hide();
+      }, 500);
+
+    });
+  </script>
+
+  {{!
+  <script>
+    $('body').preloader({
+
+      // loading text
+
+      text: 'Loading Please wait ...',
+
+      // from 0 to 100
+
+      percent: '',
+
+      // duration in ms
+
+      duration: '700',
+
+      // z-index property
+
+      zIndex: '20',
+
+      // sets relative position to preloader's parent
+
+      setRelative: false
+
+    });
+  </script>
+ }}
+ <script>
+ $(function() {
+   $('input[type="checkbox"]').checkboxpicker({
+     style: false,
+   defaultClass: 'btn-default',
+   disabledCursor: 'not-allowed',
+   offClass: 'btn-danger',
+   onClass: 'btn-success',
+   offLabel: 'Reject',
+   onLabel: 'Accept',
+   offTitle: false,
+   onTitle: false
+   });
+ });
+ </script>
+</body>
+
+</html>

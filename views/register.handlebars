@@ -1,0 +1,106 @@
+<style>
+  .margin-top-1 {
+    margin-top: 1em;
+  }
+
+  #particles-js {
+    background-color: #f4f4f4;
+    position: fixed;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  #overlay {
+    position: relative;
+  }
+</style>
+<div id="particles-js"></div>
+<link href="../assets/css/custome.css" rel="stylesheet" />
+<div class="panel-body"></div>
+<div class="panel-body"></div>
+<div class="panel-body"></div>
+<div class="panel-body"></div>
+<div class="panel-body"></div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header" data-background-color="purple">
+            <i class="material-icons">person_add</i>
+          </div>
+          <div class="card-content">
+
+            <form method="POST" action="/register">
+                <div class="form-group form-group-lg">
+                  <div class="input-group">
+                  <div class="input-group-addon">
+                  <i class="material-icons">face</i>
+                  </div>
+                  <input rel="tooltip" title="unique username" type="text" class="form-control" name="fullIdentity" placeholder="username">
+                  {{#if errors}}
+                  <ul id="username cannot be empty">
+                    <div class="input-group">
+                    <div class="input-group-addon">
+                      <p style="color:red;" id="err">{{errors.0.msg}}</p>
+                    </div>
+                  </div>
+                </ul>
+                  {{/if}}
+                </div>
+                </div>
+                <div class="form-group form-group-lg">
+                  <div class="input-group">
+  								<div class="input-group-addon">
+  								<i class="material-icons">email</i>
+  							</div>
+                  <input rel="tooltip" title="user@gmail.com" type="email" class="form-control" name="email" placeholder="Email">
+                  {{#if errors}}
+                  <ul id="email cannot be empty">
+                    <div class="input-group">
+                    <div class="input-group-addon">
+                      <p style="color:red;" id="prverror">{{errors.1.msg}}</p>
+                    </div>
+                  </div>
+                </ul>
+                  {{/if}}
+                </div>
+              </div>
+              <br>
+                <div class="form-group form-group-lg">
+                  <div class="input-group">
+  								<div class="input-group-addon">
+                  <i class="material-icons">lock_outline</i>
+                </div>
+                  <input rel="tooltip" title="********" type="password" class="form-control" name="password" placeholder="Password">
+                  {{#if errors}}
+                  <ul id="password cannot be empty">
+                    <div class="input-group">
+    								<div class="input-group-addon">
+                      <p style="color:red;" id="errors">{{errors.2.msg}}</p>
+                    </div>
+                  </div>
+                </ul>
+                  {{/if}}
+                </div>
+                  </div>
+              <br>
+          </div>
+
+          <button type="submit" rel="tooltip" title="BlockChain Based Authentication" class="btn btn-danger btn-lg btn-block"><i class="material-icons">person_add</i></button>
+        </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+</div>
+<script src="./particles.js"></script>
+<script src="./particlesjsn.js"></script>

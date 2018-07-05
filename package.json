@@ -1,0 +1,37 @@
+{
+  "name": "URBANCHAIN",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node server",
+    "deploy_coin":"node deploy",
+    "transfer_coin":"node send"
+  },
+  "author": "Narendranath Reddy",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^2.0.0",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "connect-mongo": "*",
+    "cookie-parser": "^1.4.1",
+    "dotenv": "^5.0.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-mongo-db": "^2.0.3",
+    "express-session": "*",
+    "express-validator": "*",
+    "handlebars": "^4.0.10",
+    "handlebars-helpers": "^0.9.8",
+    "mongodb": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "socket.io": "^2.0.1",
+    "sweetalert": "^2.1.0",
+    "web3": "^1.0.0-beta.33"
+  },
+  "devDependencies": {},
+  "description": ""
+}

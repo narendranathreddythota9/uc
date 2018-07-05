@@ -1,0 +1,288 @@
+<!--  Material Dashboard CSS    -->
+<link href="../assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+<div class="wrapper">
+  <div class="sidebar" data-color="orange" data-image="../assets/img/sidebar-3.jpg">
+    <div class="logo">
+      <a href="/reader" class="simple-text">
+                <img src="./urbanchain">
+                <h5 style="color:red;"><b>urbanchain</b></h5>
+              </a>
+    </div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li>
+          <a href="/wallet">
+                          <i class="material-icons">border_color</i>
+                          <p>Wallet</p>
+                      </a>
+        </li>
+        <li>
+          <a href="/reader">
+                          <i class="material-icons">content_paste</i>
+                          <p>Offers</p>
+                      </a>
+        </li>
+        <li>
+          <a href="/requestin">
+                          <i class="material-icons">rate_review</i>
+                          <p>Requests-In</p>
+                      </a>
+        </li>
+        <li>
+          <a href="/requestout">
+                          <i class="material-icons">rate_review</i>
+                          <p>Requests-Out</p>
+                      </a>
+        </li>
+        <li class="active">
+          <a href="/writer">
+                          <i class="material-icons">rate_review</i>
+                          <p>Offer-Money</p>
+                      </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-panel">
+    <nav class="navbar navbar-transparent navbar-absolute">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+          <a class="navbar-brand" href="/user">
+            <p class="category" style="color:red;"><b>Help Others For Better World</b></p>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="material-icons">dashboard</i>
+                                    <p class="hidden-lg hidden-md">Dashboard</p>
+                                </a>
+            </li>
+            <li>
+              <a href="/logout">logout
+                                    <i class="material-icons">lock</i>
+                                    <p class="hidden-lg hidden-md">lock</p>
+                                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+		<div class="col-lg-1 col-md-1"></div>
+          <div class="col-lg-10 col-md-10">
+            <div class="card">
+              <div class="card-header" data-background-color="blue">
+                <h4 class="title"><i class="material-icons">local_offer</i><br><b>Offer-Loan<b></h4>
+              </div>
+              <div class="card-content">
+                <form method="POST" action="/offers">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                      <div class="card card-stats">
+                        <div class="card-header" data-background-color="red">
+                          <i class="material-icons">access_time</i>
+                        </div>
+                        <div class="card-content">
+                          <div class="form-group ">
+                            <h7 class="control-label">Time-Period</h7>
+                            <input type="text" name="time" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                      <div class="card card-stats">
+                        <div class="card-header" data-background-color="orange">
+                          <i class="material-icons">attach_money</i>
+                        </div>
+                        <div class="card-content">
+                          <div class="form-group ">
+                            <h7 class="control-label">Interest</h7>
+                            <input type="text" name="rate" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                      <div class="card card-stats">
+                        <div class="card-header" data-background-color="blue">
+                          <i class="material-icons">donut_large</i>
+                        </div>
+                        <div class="card-content">
+                          <div class="form-group ">
+                            <h7 class="control-label">Credit-Max</h7>
+                            <input  type="text" name="max" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                      <div class="card card-stats">
+                        <div class="card-header" data-background-color="green">
+                          <i class="material-icons">comment</i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                      <div class="form-group">
+                        <textarea id="editor" class="form-control" name="comment" rows="5"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary pull-right">submit</button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+		  <div class="col-lg-1 col-md-1"></div>
+          <div class="col-lg-4 col-md-4">
+            <div class="row">
+              {{#if errors}}
+                <div id="prverror" style="text-align:center; color:red">
+
+                  <script>
+                    sweetAlert({
+                      title: "{{errors}}",
+                      text: "",
+                      icon: "error",
+                    });
+                  </script>
+                  {{!
+                                   <i class="material-icons">error_outline</i>
+                                   <h4 class="alert alert-danger" id="prverror" role="alert" >{{errors}}
+                  {{!</h4>}}
+                </div>
+              {{/if}}
+              {{#if ok}}
+                <div id="prvsuccess" style="text-align:center; color:green">
+
+                  <script>
+                    sweetAlert({
+                      title: "{{ok}}",
+                      text: "",
+                      icon: "success",
+                    });
+                  </script>
+                  {{!
+                                   <i class="material-icons">check_circle</i>
+                                   <h4 class="alert alert-success" id="prvsuccess" role="alert" >{{ok}}
+                  {{!</h4>}}
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <nav class="pull-left">
+                <ul>
+                  <li>
+                      <a href="/wallet">
+                          Wallet
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/reader">
+                          Offers
+                      </a>
+                  </li>
+                    <li>
+                        <a href="/requestin">
+                            Requests-In
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/requestout">
+                            Requests-Out
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/writer">
+                            Offer-Money
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout">logout
+                            <i class="material-icons">lock</i>
+                            <p class="hidden-lg hidden-md">lock</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <p class="copyright pull-right">
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>
+                <a href="/">urbanchain</a>, Help Others For Better World
+            </p>
+        </div>
+    </footer>
+  </div>
+</div>
+<style>
+  blockQuote,
+  q {
+    border-left: solid orange;
+    background: rgb(250, 247, 247) no-repeat;
+    text-shadow: 1px 1px #fff;
+    margin: 5px 0;
+  }
+</style>
+<style>
+  .ck-editor__editable {
+    min-height: 200px;
+  }
+</style>
+<!--  Edit Plugin -->
+<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.1/classic/ckeditor.js"></script>
+<script>
+  ClassicEditor
+    .create(document.querySelector('#editor'), {
+      toolbar: ['headings', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+      heading: {
+        options: [{
+            modelElement: 'paragraph',
+            title: 'Paragraph',
+            class: 'ck-heading_paragraph'
+          },
+          {
+            modelElement: 'heading4',
+            viewElement: 'h4',
+            title: 'Heading 4',
+            class: 'ck-heading_heading1'
+          },
+          {
+            modelElement: 'heading5',
+            viewElement: 'h5',
+            title: 'Heading 5',
+            class: 'ck-heading_heading2'
+          },
+          {
+            modelElement: 'heading6',
+            viewElement: 'h6',
+            title: 'Heading 6',
+            class: 'ck-heading_heading3'
+          }
+        ]
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+</script>

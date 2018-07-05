@@ -1,0 +1,316 @@
+<link href="../assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+<link href="../assets/css/custome.css" rel="stylesheet" />
+<link href="../assets/css/status.css" rel="stylesheet" />
+    <div class="wrapper">
+        <div class="sidebar" data-color="red" data-image="../assets/img/sidebar-1.jpg">
+          <div class="logo">
+            <a href="/reader" class="simple-text">
+                      <img src="./urbanchain">
+                      <h5 style="color:red;"><b>urbanchain</b></h5>
+                    </a>
+          </div>
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                <li>
+                  <a href="/wallet">
+                                  <i class="material-icons">border_color</i>
+                                  <p>Wallet</p>
+                              </a>
+                </li>
+                <li>
+                  <a href="/reader">
+                                  <i class="material-icons">content_paste</i>
+                                  <p>Offers</p>
+                              </a>
+                </li>
+                <li class="active">
+                  <a href="/requestin">
+                                  <i class="material-icons">rate_review</i>
+                                  <p>Requests-In</p>
+                              </a>
+                </li>
+                <li>
+                  <a href="/requestout">
+                                  <i class="material-icons">rate_review</i>
+                                  <p>Requests-Out</p>
+                              </a>
+                </li>
+                <li>
+                  <a href="/writer">
+                                  <i class="material-icons">rate_review</i>
+                                  <p>Offer-Money</p>
+                              </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+          {{#if error}}
+              <script>
+                sweetAlert({
+                  title: "{{error}}",
+                  text: "",
+                  icon: "error",
+                });
+              </script>
+          {{/if}}
+          {{#if success}}
+              <script>
+                sweetAlert({
+                  title: "{{success}}",
+                  text: "",
+                  icon: "success",
+                });
+              </script>
+          {{/if}}
+          <nav class="navbar navbar-transparent navbar-absolute">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="/user">   <p class="category" style="color:red;"><b>Help Others For Better World</b></p></a>
+                  </div>
+                  <div class="collapse navbar-collapse">
+                      <ul class="nav navbar-nav navbar-right">
+                          <li>
+                              <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                  <i class="material-icons">dashboard</i>
+                                  <p class="hidden-lg hidden-md">Dashboard</p>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="/logout">
+                                  Logout<i class="material-icons">lock</i>
+                                  <p class="hidden-lg hidden-md">lock</p>
+                              </a>
+                          </li>
+                      </ul>
+                      <form method="POST" action="/articles/search" class="navbar-form navbar-right" role="search">
+                        <div class="form-group  is-empty">
+                          <input type="text" class="form-control" name="searchValue" placeholder="Type Writer Name">
+                          <span class="material-input"></span>
+                      </div>
+                        <div class="form-group  is-empty">
+                        <div class="select">
+                        <select  name="search_categories" id="search_categories">
+                        <option id="search_categories" value="" disabled="disabled" selected="selected">Search By</option>
+                        <option id="search_categories" value="writer">writerName</option>
+                        <option id="search_categories" value="title">title</option>
+                        <option id="search_categories" value="status">status</option>
+                      </select>
+                      </div>
+                    </div>
+                      <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                          <i class="material-icons">search</i>
+                          <div class="ripple-container"></div>
+                      </button>
+                  </form>
+                  </div>
+              </div>
+          </nav>
+            <div class="content">
+                {{#if loaners}}
+                <div class="container-fluid" {{# each loaners }}>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="blue">
+                                    <h4 rel="tooltip" title="For Better Search we use Mongodb Please cross verify selected Article with blockchain. At verify Articel Section" class="title"><b>Article-Title</b><br>{{this.title}}</h4>
+                                </div>
+                                <div class="card-content">
+                                  <div class="row">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                      <div class="card card-stats">
+                                        <div class="card-header" data-background-color="red">
+                                          <i class="material-icons">vpn_key</i>
+                                        </div>
+                                        <div rel="tooltip" title="Article c Address on Blockchain" class="card-content">
+                                          <div class="form-group ">
+                                            <h7 class="control-label">Public-Key</h7>
+                                            <h6>{{ this.pk }}</h6>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                      <div class="card card-stats">
+                                        <div class="card-header" data-background-color="blue">
+                                          <i class="material-icons">email</i>
+                                        </div>
+                                        <div rel="tooltip" title="Article c Address on Blockchain" class="card-content">
+                                          <div class="form-group ">
+                                            <h7 class="control-label">E-Mail</h7>
+                                          <h5>{{ this.email }}</h5>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                      <div class="card card-stats">
+                                        <div class="card-header" data-background-color="green">
+                                          <i class="material-icons">attach_money</i>
+                                        </div>
+                                        <div rel="tooltip" title="Article c Address on Blockchain" class="card-content">
+                                          <div class="form-group ">
+                                            <h7 class="control-label">Requested</h7>
+                                          <h5>{{ this.money }}</h5>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                  <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="card card-stats">
+                                      <div class="card-header" data-background-color="orange">
+                                        <i class="material-icons">stars</i>
+                                      </div>
+                                      <div rel="tooltip" title="Article c Address on Blockchain" class="card-content">
+                                        <div class="form-group ">
+                                          <h7 class="control-label">Reputation</h7>
+                                        <h4>{{ this.reputation }}</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="card card-stats">
+                                      <div class="card-header" data-background-color="purple">
+                                        <i class="material-icons">person_pin</i>
+                                      </div>
+                                      <div rel="tooltip" title="Article contract  on Blockchain" class="card-content">
+                                        <div class="form-group ">
+                                          <h7 class="control-label">Username</h7>
+                                          <h4>{{ this.username }}</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="card card-stats">
+                                      <div class="card-header" data-background-color="pink">
+                                        <i class="material-icons">hourglass_empty</i>
+                                      </div>
+                                      <div rel="tooltip" title="Article contract Address on Blockchain" class="card-content">
+                                        {{#equal  this.status "Rejected"}}
+                                        <div class="form-group ">
+                                        <h4>{{ this.status }}<div class="status-offline pull-right"></div></h4>
+                                        <div class="panel-body"></div>
+                                        </div>
+                                        {{/equal}}
+                                        {{#equal  this.status "Accepted"}}
+                                        <div class="form-group ">
+                                        <h4>{{ this.status }}<div class="status-online pull-right"></div></h4>
+                                        <div class="panel-body"></div>
+                                        </div>
+                                        {{/equal}}
+                                        {{#equal  this.status "Pending"}}
+                                        <div class="form-group ">
+                                        <h4>{{ this.status }}<div class="status-wait pull-right"></div></h4>
+                                        <div class="panel-body"></div>
+                                        </div>
+                                        {{/equal}}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <form method="POST" action="/accept/reject">
+                                    <input type="hidden" name="user" value="{{this.username}}"/>
+                                    <input type="hidden" name="money" value="{{this.money}}"/>
+                                  <div class="card card-stats">
+                                    <div rel="tooltip" title="Click here to send money request to Loaner" class="card-content">
+                                        <div class="form-group">
+                                          {{#equal  this.status "Accepted"}}
+                                          <button type="submit" name="accept" value="accept" disabled class="btn btn-success"><i class="material-icons">thumb_up</i></button>
+                                          <button type="submit" name="reject" value="reject" disabled class="btn btn-danger" ><i class="material-icons">thumb_down</i></button>
+                                          {{/equal}}
+                                          {{#equal  this.status "Pending"}}
+                                          <button type="submit" name="accept" value="accept"  class="btn btn-success"><i class="material-icons">thumb_up</i></button>
+                                          <button type="submit" name="reject" value="reject"  class="btn btn-danger" ><i class="material-icons">thumb_down</i></button>
+                                          {{/equal}}
+                                          {{#equal  this.status "Rejected"}}
+                                          <button type="submit" name="accept" value="accept"  class="btn btn-success"><i class="material-icons">thumb_up</i></button>
+                                          <button type="submit" name="reject" value="reject"  class="btn btn-danger" ><i class="material-icons">thumb_down</i></button>
+                                          {{/equal}}
+                                      </div>
+                                  </div>
+                                </form>
+                                </div>
+                                </div>
+                              </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div {{/each}}>
+                </div>
+            </div>
+            {{else}}
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-3">
+                  <img src="./norecord.png">
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                      <img src="./cloud-servers.gif">
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+             {{/if}}
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul>
+                          <li>
+                              <a href="/wallet">
+                                  Wallet
+                              </a>
+                          </li>
+                          <li>
+                              <a href="/reader">
+                                  Offers
+                              </a>
+                          </li>
+                            <li>
+                                <a href="/requestin">
+                                    Requests-In
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/requestout">
+                                    Requests-Out
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/writer">
+                                    Offer-Money
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/logout">logout
+                                    <i class="material-icons">lock</i>
+                                    <p class="hidden-lg hidden-md">lock</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="copyright pull-right">
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        <a href="/">urbanchain</a>, Help Others For Better World
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
